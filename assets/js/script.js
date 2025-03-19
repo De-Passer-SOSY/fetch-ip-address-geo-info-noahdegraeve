@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", init);
 
 function init() {
     document.querySelector("#getIp").addEventListener("click", fetchIp);
-    document.querySelector("#getlocation").addEventListener("click", fetchlocation);
+    document.querySelector("#getLocation").addEventListener("click", fetchLocation);
     console.log("de website is ingeladen");
 }
 
@@ -18,7 +18,7 @@ async function fetchIp() {
     }
 }
 
-async function fetchlocation() {
+async function fetchLocation() {
     try {
         let response = await fetch("https://ipinfo.io/195.130.157.67/geo");
         let data = await response.json()
@@ -36,6 +36,6 @@ function displayIp(data) {
 
 function displayLocation(data) {
     const container = document.querySelector("#locationContainer");
-    container.innerHTML = data.city;
+    container.innerHTML = data.city + " " + data.region + " " + " " +data.country + " " + data.loc;
 
 }
